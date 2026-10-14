@@ -4,8 +4,8 @@ export function renderLogin(el) {
   el.innerHTML = `
     <div class="login-pantalla">
       <form class="login-tarjeta" id="form-login">
-        <h1>Repuestos RD</h1>
-        <p class="login-subtitulo">Gestión de inventario, ventas y consignación</p>
+        <img src="/logo.jpg" alt="MekaChinos" class="login-logo" />
+        <p class="login-subtitulo">Repuestos de confianza, siempre disponibles</p>
         <label for="email">Correo</label>
         <input id="email" type="email" autocomplete="username" required />
         <label for="password">Contraseña</label>

@@ -47,13 +47,19 @@ button {
   gap: 10px;
 }
 
-.login-tarjeta h1 {
-  margin: 0;
-  font-size: 1.3rem;
+.login-logo {
+  width: 100%;
+  max-width: 220px;
+  margin: 0 auto 6px;
+  display: block;
+  background: #fff;
+  border-radius: 10px;
+  padding: 8px;
 }
 
 .login-subtitulo {
   margin: 0 0 10px;
+  text-align: center;
   color: var(--texto-tenue);
   font-size: 0.85rem;
 }

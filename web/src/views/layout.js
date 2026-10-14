@@ -9,7 +9,7 @@ export function renderLayout(el, perfil) {
     <div class="app-shell">
       <header class="app-topbar">
         <button class="app-menu-btn" id="btn-menu" aria-label="Menú">☰</button>
-        <span class="app-topbar-titulo">Repuestos RD</span>
+        <span class="app-topbar-titulo">MekaChinos</span>
         <span class="app-topbar-usuario">${escaparHtml(perfil.nombre)} · ${perfil.rol}</span>
         <button class="app-salir" id="btn-salir">Salir</button>
       </header>
