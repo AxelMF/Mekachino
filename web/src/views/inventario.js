@@ -8,6 +8,7 @@ export async function renderInventario(el) {
     productos: [],
     almacenes: [],
     conteoActivo: null, // { id, numero, lineas: [...] }
+    filtroExistencias: '',
   }
 
   el.innerHTML = `<p class="cargando">Cargando inventario…</p>`
@@ -53,13 +54,24 @@ export async function renderInventario(el) {
   }
 
   function dibujarExistencias(contenido) {
+    const filtro = estado.filtroExistencias.trim().toLowerCase()
+    const filas = estado.existencias.filter((e) => {
+      if (!filtro) return true
+      return (
+        e.sku.toLowerCase().includes(filtro) ||
+        e.descripcion.toLowerCase().includes(filtro) ||
+        (e.numero_oem || '').toLowerCase().includes(filtro)
+      )
+    })
+
     contenido.innerHTML = `
+      <input type="search" id="buscador-existencias" class="input-buscar" placeholder="Buscar por SKU, descripción o número OEM…" value="${escaparAttr(estado.filtroExistencias)}" />
       <table class="tabla">
         <thead>
           <tr><th>SKU</th><th>Descripción</th><th>Propiedad</th><th>Almacén</th><th>Cantidad</th><th>Precio</th><th>Días en inventario</th></tr>
         </thead>
         <tbody>
-          ${estado.existencias
+          ${filas
             .map(
               (e) => `
             <tr>
@@ -72,10 +84,20 @@ export async function renderInventario(el) {
               <td>${e.dias_en_inventario}</td>
             </tr>`
             )
-            .join('') || `<tr><td colspan="7" class="tabla-vacia">Sin existencias.</td></tr>`}
+            .join('') ||
+          `<tr><td colspan="7" class="tabla-vacia">${estado.existencias.length ? 'Sin existencias que coincidan.' : 'Sin existencias.'}</td></tr>`}
         </tbody>
       </table>
     `
+
+    const buscador = contenido.querySelector('#buscador-existencias')
+    buscador.addEventListener('input', (ev) => {
+      estado.filtroExistencias = ev.target.value
+      dibujarExistencias(contenido)
+      contenido.querySelector('#buscador-existencias').focus()
+      const valor = contenido.querySelector('#buscador-existencias').value
+      contenido.querySelector('#buscador-existencias').setSelectionRange(valor.length, valor.length)
+    })
   }
 
   function dibujarRecibir(contenido) {
@@ -229,4 +251,8 @@ function escaparHtml(texto) {
   const div = document.createElement('div')
   div.textContent = texto ?? ''
   return div.innerHTML
+}
+
+function escaparAttr(texto) {
+  return escaparHtml(texto).replaceAll('"', '&quot;')
 }
