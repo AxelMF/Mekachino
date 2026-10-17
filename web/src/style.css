@@ -188,6 +188,195 @@ button {
   color: var(--texto-tenue);
 }
 
+.cargando {
+  color: var(--texto-tenue);
+}
+
+/* ---------- Pantallas de módulo (catálogo, inventario, ...) ---------- */
+.pantalla-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.pantalla-header h2 { margin: 0; }
+
+.btn-primario,
+.btn-secundario {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 1px solid transparent;
+}
+
+.btn-primario {
+  background: var(--acento);
+  color: #1a1a1a;
+}
+
+.btn-secundario {
+  background: var(--bg-panel-2);
+  border-color: var(--borde);
+  color: var(--texto);
+}
+
+.btn-primario:disabled,
+.btn-secundario:disabled { opacity: 0.6; }
+
+.input-buscar {
+  width: 100%;
+  max-width: 420px;
+  padding: 9px 12px;
+  margin-bottom: 14px;
+  background: var(--bg-panel-2);
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  color: var(--texto);
+}
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg-panel);
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  overflow: hidden;
+  font-size: 0.9rem;
+}
+
+.tabla th, .tabla td {
+  text-align: left;
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--borde);
+  white-space: nowrap;
+}
+
+.tabla th {
+  color: var(--texto-tenue);
+  font-weight: 600;
+  background: var(--bg-panel-2);
+}
+
+.tabla tbody tr:last-child td { border-bottom: none; }
+.fila-click { cursor: pointer; }
+.fila-click:hover { background: var(--bg-panel-2); }
+.tabla-vacia { color: var(--texto-tenue); white-space: normal; }
+
+.tarjeta-form {
+  background: var(--bg-panel);
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  padding: 18px;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.tarjeta-form h3 { margin: 0 0 4px; }
+
+.tarjeta-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 0.85rem;
+  color: var(--texto-tenue);
+}
+
+.tarjeta-form input,
+.tarjeta-form select {
+  padding: 8px 10px;
+  background: var(--bg-panel-2);
+  border: 1px solid var(--borde);
+  border-radius: 7px;
+  color: var(--texto);
+  font-size: 0.95rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.form-grid-compat { grid-template-columns: 1fr 1fr; }
+
+.form-check {
+  flex-direction: row !important;
+  align-items: center;
+  gap: 8px !important;
+}
+
+.form-check input { width: auto; }
+
+.form-acciones {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.nota-ayuda {
+  font-size: 0.8rem;
+  color: var(--texto-tenue);
+  margin: 0;
+}
+
+.lista-compat {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 0.9rem;
+}
+
+.badge {
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.badge-propia { background: #1d3a2a; color: var(--exito); }
+.badge-consignacion { background: #3a2a1d; color: var(--acento); }
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid var(--borde);
+  margin-bottom: 16px;
+}
+
+.tab {
+  background: none;
+  border: none;
+  padding: 9px 14px;
+  color: var(--texto-tenue);
+  font-size: 0.9rem;
+  border-bottom: 2px solid transparent;
+}
+
+.tab-activo {
+  color: var(--texto);
+  border-bottom-color: var(--acento);
+}
+
+.input-conteo {
+  width: 90px;
+  padding: 6px 8px;
+  background: var(--bg-panel-2);
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+  color: var(--texto);
+}
+
+@media (max-width: 720px) {
+  .tabla { font-size: 0.82rem; }
+  .form-grid { grid-template-columns: 1fr; }
+}
+
 /* ---------- Toasts ---------- */
 .toast-contenedor {
   position: fixed;

@@ -26,4 +26,24 @@ export const api = {
     }
     return data
   },
+
+  // insert/update son solo para tablas maestras (catálogo, almacenes, etc.)
+  // permitidas por RLS; las tablas transaccionales van siempre por rpc().
+  async insert(tabla, valores) {
+    const { data, error } = await supabase.from(tabla).insert(valores).select()
+    if (error) {
+      mostrarToast(error.message || `Error al crear en ${tabla}`)
+      throw error
+    }
+    return data
+  },
+
+  async update(tabla, id, valores) {
+    const { data, error } = await supabase.from(tabla).update(valores).eq('id', id).select()
+    if (error) {
+      mostrarToast(error.message || `Error al actualizar ${tabla}`)
+      throw error
+    }
+    return data
+  },
 }

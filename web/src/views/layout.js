@@ -1,6 +1,13 @@
 import { cerrarSesion } from '../auth.js'
 import { menuParaRol } from '../menu.js'
 import { definirRutas, renderizar, navegar } from '../router.js'
+import { renderCatalogo } from './catalogo.js'
+import { renderInventario } from './inventario.js'
+
+const VISTAS = {
+  '/catalogo': renderCatalogo,
+  '/inventario': renderInventario,
+}
 
 export function renderLayout(el, perfil) {
   const menu = menuParaRol(perfil.rol)
@@ -30,7 +37,7 @@ export function renderLayout(el, perfil) {
   const contenido = el.querySelector('#contenido')
   const rutas = menu.map((item) => ({
     ruta: item.ruta,
-    render: (destino) => renderSeccion(destino, item.etiqueta),
+    render: VISTAS[item.ruta] || ((destino) => renderSeccion(destino, item.etiqueta)),
   }))
   rutas.push({
     ruta: '*',
