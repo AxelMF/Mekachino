@@ -3,10 +3,12 @@ import { menuParaRol } from '../menu.js'
 import { definirRutas, renderizar, navegar } from '../router.js'
 import { renderCatalogo } from './catalogo.js'
 import { renderInventario } from './inventario.js'
+import { renderConsignacion } from './consignacion.js'
 
 const VISTAS = {
   '/catalogo': renderCatalogo,
   '/inventario': renderInventario,
+  '/consignacion': renderConsignacion,
 }
 
 export function renderLayout(el, perfil) {

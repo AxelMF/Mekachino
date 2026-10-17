@@ -306,6 +306,15 @@ button {
 
 .form-grid-compat { grid-template-columns: 1fr 1fr; }
 
+.form-grid-linea {
+  grid-template-columns: 2fr 1fr 1fr 1fr auto;
+  align-items: end;
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--borde);
+}
+
+.badge-alerta { background: #3a1d1d; color: var(--error); }
+
 .form-check {
   flex-direction: row !important;
   align-items: center;
