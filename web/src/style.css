@@ -315,6 +315,60 @@ button {
 
 .badge-alerta { background: #3a1d1d; color: var(--error); }
 
+.form-grid-pos {
+  grid-template-columns: 2fr 1fr 1fr 1fr auto;
+  align-items: end;
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--borde);
+  max-width: 900px;
+}
+
+.form-grid-pago {
+  grid-template-columns: 1fr 1fr 1fr auto;
+  align-items: end;
+  padding: 8px 0;
+  max-width: 720px;
+}
+
+.pos-totales {
+  max-width: 320px;
+  margin-left: auto;
+  gap: 6px;
+}
+
+.pos-totales-fila {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: var(--texto-tenue);
+}
+
+.pos-totales-total {
+  color: var(--texto);
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-top: 1px solid var(--borde);
+  padding-top: 6px;
+  margin-top: 2px;
+}
+
+.selector-consignador {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 0.85rem;
+  color: var(--texto-tenue);
+  margin-bottom: 14px;
+}
+
+.selector-consignador select {
+  padding: 8px 10px;
+  background: var(--bg-panel-2);
+  border: 1px solid var(--borde);
+  border-radius: 7px;
+  color: var(--texto);
+}
+
 .form-check {
   flex-direction: row !important;
   align-items: center;

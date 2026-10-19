@@ -4,11 +4,17 @@ import { definirRutas, renderizar, navegar } from '../router.js'
 import { renderCatalogo } from './catalogo.js'
 import { renderInventario } from './inventario.js'
 import { renderConsignacion } from './consignacion.js'
+import { renderPos } from './pos.js'
+import { renderCaja } from './caja.js'
+import { renderClientes } from './clientes.js'
 
 const VISTAS = {
   '/catalogo': renderCatalogo,
   '/inventario': renderInventario,
   '/consignacion': renderConsignacion,
+  '/pos': renderPos,
+  '/caja': renderCaja,
+  '/clientes': renderClientes,
 }
 
 export function renderLayout(el, perfil) {
